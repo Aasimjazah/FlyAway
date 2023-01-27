@@ -251,7 +251,7 @@ div.content {
     <option value="Ahmedabad">Ahmedabad</option>
  </select>
  
-   <label for="text">No of passenders:</label>
+   <label for="text">No of passengers:</label>
    <select name="pno" id="pno" class="form-control">
     <option value="1">1</option>
     <option value="2">2</option>
@@ -274,7 +274,7 @@ if(search!=null)
 	%>
 	
 	<table style="width:100%">
-  <tr>
+  <tr style="background-color:black; color:white;">
     <td>Flight ID</td>
     <td>Airlines</td>
     <td>Source</td>
@@ -284,10 +284,10 @@ if(search!=null)
   </tr>
 	
 	<%
-      System.out.println(request.getParameter("date"));
+      String date = request.getParameter("date");
       String source = request.getParameter("source");
       String destination = request.getParameter("destination");
-      System.out.println(request.getParameter("pno"));
+      String pno = request.getParameter("pno");
       
       List <Flight> flight =   AddFlightBusinessLogic.getAllFlights();
 
@@ -302,7 +302,8 @@ if(search!=null)
     <td><%=f.getAirline().getAirlineName() %></td>
     <td><%=f.getPlaces().getSource() %></td>
     <td><%=f.getPlaces().getDestination() %></td>
-    <td><%=f.getTicketPrice() %></td>
+    <td><%=f.getTicketPrice() %> </td>
+    <td><a style="color:green;border-style: 2px solid;" href="RegisterDetails.jsp?fid=<%= f.getF_ID()%>&pno=<%=pno%>&date=<%=date%>"> Book Flight</a></td>
     	</tr>
     	<% 
     	  }
