@@ -272,6 +272,7 @@ String search= request.getParameter("search");
 if(search!=null)
 {
 	%>
+	
 	<table style="width:100%">
   <tr>
     <td>Flight ID</td>
