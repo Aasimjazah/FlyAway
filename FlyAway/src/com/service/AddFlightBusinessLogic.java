@@ -1,0 +1,57 @@
+package com.service;
+
+import java.util.List;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+import org.hibernate.Transaction;
+
+import com.entity.*;
+
+public class AddFlightBusinessLogic 
+{
+	
+	   public static void addFlightDetails(Flight f)
+       {
+  
+     	  SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+ 	      Session session = sessionFactory.openSession();
+ 	      
+ 	      Transaction t = session.beginTransaction();
+           session.save(f);
+          
+    t.commit();
+    
+    session.close();
+    
+ 	     
+
+       } 
+	   
+	   public static List<Flight> getAllFlights()
+       {
+  
+     	  SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+ 	      Session session = sessionFactory.openSession();
+ 	      
+ 	      
+
+ 	     List<Flight> flight = session.createQuery("from Flight").list();
+ 	     
+ 	   
+ 	     
+ 	      
+ 	      Transaction t = session.beginTransaction();
+           
+          
+    t.commit();
+    
+    session.close();
+    
+   return flight;
+
+       }
+	   
+
+}
