@@ -17,11 +17,6 @@
             String destination = request.getParameter("destination");
             String ticketPrice = request.getParameter("price");
 
-            System.out.println("Airline ="+ airline);
-            System.out.println("source ="+ source);
-            System.out.println("destination ="+ destination);
-            System.out.println("ticketPrice ="+ ticketPrice);
-            
             Airlines a = new Airlines(airline);
             Places p = new Places(source, destination);
             Flight f = new Flight(a,p,ticketPrice);

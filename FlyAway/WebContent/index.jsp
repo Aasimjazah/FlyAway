@@ -200,10 +200,10 @@ div.content {
 
 <div class="sidebar">
   <a class="active" href="#home">Home</a>
-  <a href="#news">News</a>
-  <a Href="AdminLogin.jsp">Admin Login</a>
-  <a href="MyTicket.jsp">My Tickets</a>
-  <a href="#about">About</a>
+  <a href="AllAirlines.jsp">AllAirlines <i class="fa fa-plane" style="font-size:25px;"></i></a>
+  <a Href="AdminLogin.jsp">Admin Login <i class="fa fa-login" style="font-size:24px"></i></a>
+  <a href="MyTicket.jsp">My Tickets <i class="fa fa-ticket" style="font-size:24px"></i></a>
+  <a href="AllPlaces.jsp">All Places <i class="fa fa-globe" style="font-size:25px;"></i></a>
 </div>
 
 <div class="content">
@@ -215,7 +215,7 @@ div.content {
                 <Ul Class="Nav">
                     <Li><A Href="#">Home</A></Li>
                     <Li><A Href="AdminLogin.jsp">Admin Login</A></Li>
-                    <Li><A Href="MyTicket.jsp">My Ticket Details</A></Li>
+                    <Li><A Href="MyTicket.jsp">My Ticket Details <i class="fa fa-ticket" style="font-size:24px"></i></A></Li>
                     <Li><A Href="#">About</A></Li>
                     <Li><A Href="#">Contact</A></Li>
                 </Ul>
@@ -229,9 +229,10 @@ div.content {
 
 
   <label for="text"> Travel Date:</label>
-  <input type="date" id=date" placeholder="Enter Date" name="date">
+  <input type="date" id=date" placeholder="Enter Date" name="date" required>
   <label for="text">Source:</label>
  <select name="source" id="source" class="form-control">
+ <option value="All">All</option>
     <option value="Delhi">Delhi</option>
     <option value="Mumbai">Mumbai</option>
     <option value="Chennai">Chennai</option>
@@ -242,6 +243,7 @@ div.content {
  </select>
   <label for="text">Destination:</label>
    <select name="destination" id="destination" class="form-control">
+   <option value="All">All</option>
     <option value="Mumbai">Mumbai</option>
     <option value="Delhi">Delhi</option>
     <option value="Chennai">Chennai</option>
@@ -291,6 +293,26 @@ if(search!=null)
       
       List <Flight> flight =   AddFlightBusinessLogic.getAllFlights();
 
+      if(source.equals("All")||destination.equals("All"))
+      {
+    	  for(Flight f: flight)
+          {
+        	         	%>
+        	<tr>
+        	 <td><%=f.getF_ID() %></td>
+        <td><%=f.getAirline().getAirlineName() %></td>
+        <td><%=f.getPlaces().getSource() %></td>
+        <td><%=f.getPlaces().getDestination() %></td>
+        <td><%=f.getTicketPrice() %> </td>
+        <td><a style="color:green;border-style: 2px solid;" href="RegisterDetails.jsp?fid=<%= f.getF_ID()%>&pno=<%=pno%>&date=<%=date%>"> Book Flight</a></td>
+        	</tr>
+        	<% 
+        	  }
+          
+         search = null; 
+    }
+      
+      else{
       for(Flight f: flight)
       {
     	  if(f.getPlaces().getSource().equalsIgnoreCase(source)&&f.getPlaces().getDestination().equalsIgnoreCase(destination) )
@@ -310,6 +332,7 @@ if(search!=null)
     	  }
       
      search = null; 
+}
 }
 %>
 

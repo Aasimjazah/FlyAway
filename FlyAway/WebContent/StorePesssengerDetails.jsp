@@ -48,7 +48,7 @@
     <td><%=f.getAirline().getAirlineName() %></td>
     <td><%=f.getPlaces().getSource() %></td>
     <td><%=f.getPlaces().getDestination() %></td>
-    <td><%=f.getTicketPrice() %> </td>
+    <td><%=Integer.parseInt(f.getTicketPrice())*Integer.parseInt(pno)%> </td>
     
  
     	</tr>

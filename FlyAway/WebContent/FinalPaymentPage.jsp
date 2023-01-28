@@ -27,15 +27,27 @@
                         {
                         	
                         	AddPessengerDetailsBusinessLogic.addPessengerDetails(p);
-                        	out.println("Thanks for booking Here is your ticket no: "+ticketNo );
+                        	%>
+                        	<div style="text-align:center">
+                        	     <h2>Thanks for booking the flight below is your ticket no.</h2>
+                        	      <h1><%=ticketNo %></h1>
+                        	      
+                        	      <br>
+                        	      <a href="MyTicket.jsp">Check Ticket details</a>
+                        	</div>
+                        	
+                        	<%
                         	
                         }
                         else
                         {
-                        	out.println("Payment not done please enter correct code: ");
                         	%>
+                        	<div style="text-align:center">
+                        	     <h2>Oops! Payment not done successfully</h2>
+                        	      <a href="index.jsp">Try Again</a>
+                        	      
+                        	</div>
                         	
-                        	<a href="index.jsp">Try Again</a>
                         	<%
                         	
                         }

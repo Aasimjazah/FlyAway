@@ -1,7 +1,11 @@
+<%@ page import="com.service.*" %>
+<%@ page import="com.entity.*" %>
+<%@ page import="java.util.*" %>
+
 <!DOCTYPE html>
 <html>
 <head>
-<title>Admin Dashboard</title>
+<title>All Places</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
@@ -149,12 +153,9 @@ div.content {
 <body>
 
 <div class="sidebar">
-  <a style="color:blue" class="active" href="AdminDashboard.jsp">Home</a>
-  <a href="AllPlaces.jsp">All Places</a>
-  <a href="AllAirlines.jsp">All Airlines</a>
-  <a Href="ResetPassword.jsp">Reset Password</a>
-  <a href="AllFlights.jsp">All FLights</a>
-  <a href="AllPessengers.jsp">All Pessengers</a>
+  <a style="color:blue" class="active" href="index.jsp">Home</a>
+  <a href="#news">News</a>
+  
 </div>
 
 <div class="content">
@@ -165,42 +166,44 @@ div.content {
             <Nav Class="Site-Navigation">
                 <Ul Class="Nav">
                     <Li><A Href="#">Home</A></Li>
-                    <Li><A Href="AllPlaces.jsp">All Places</A></Li>
-                    <Li><A Href="AllAirlines.jsp">All Airlines</A></Li>
+                    <Li><A Href="#">About</A></Li>
+                    <Li><A Href="#">Blog</A></Li>
                     <Li><A Href="index.jsp">Logout</A></Li>
                 </Ul>
             </Nav>
         </Header>
-  <h1>Add flight details</h1>
-<form style="margin-top:10%; border:2px dashed black;" class="form-inline" action="AddFlight.jsp">
+  <h1>All Places</h1>
+         
+       
+         
+         <table style="width:100%">
+  <tr style="background-color:black; color:white;">
+    <td>Source</td>
+     <td>Destination</td>
+    
+  </tr>
+	
+	<%
+      List <Places> places =   PlacesService.getAllPlaces();
+
+      for(Places p: places)
+      {
+    	 
+    	%>
+    	<tr>
+    	 <td><%=p.getSource() %></td>
+          <td><%=p.getDestination() %></td>
+   
+        	</tr>
+    	<%
+      
+}
+%>
 
 
-  <label for="text"> Airlines:</label>
-  <input type="text" id="email" placeholder="Enter Airline name" name="airline">
-  <label for="text">Source:</label>
- <select name="source" id="source" class="form-control">
-    <option value="Delhi">Delhi</option>
-    <option value="Mumbai">Mumbai</option>
-    <option value="Chennai">Chennai</option>
-    <option value="Hyderabad">Hyderabad</option>
-    <option value="Kochi">Kochi</option>
-    <option value="Kerela">Kerela</option>
-    <option value="Ahmedabad">Ahmedabad</option>
- </select>
-  <label for="text">Destination:</label>
-   <select name="destination" id="destination" class="form-control">
-    <option value="Mumbai">Mumbai</option>
-    <option value="Delhi">Delhi</option>
-    <option value="Chennai">Chennai</option>
-    <option value="Hyderabad">Hyderabad</option>
-    <option value="Kochi">Kochi</option>
-    <option value="Kerela">Kerela</option>
-    <option value="Ahmedabad">Ahmedabad</option>
- </select>
-  <label for="text">Ticket Price:</label>
-  <input type="text" id="pwd" placeholder="Enter ticket price" name="price">
-  <button type="submit">Submit</button>
-</form>
+</table>
+         
+         
 </div>
 
 </body>

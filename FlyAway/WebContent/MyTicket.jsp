@@ -199,7 +199,7 @@ div.content {
 <body>
 
 <div class="sidebar">
-  <a class="active" href="#home">Home</a>
+  <a class="active" href="index.jsp">Home</a>
   <a href="#news">News</a>
   <a Href="AdminLogin.jsp">Admin Login</a>
   <a href="MyTicket.jsp">My Tickets</a>
@@ -246,12 +246,14 @@ if(search!=null)
     <td>Flight ID</td>
     <td>Name</td>
     <td>Age</td>
+    <td>Email</td>
     <td>Date</td>
      <td>Ticket No</td>
      <td>Price</td>
       <td>No. of pessenger</td>
         <td>Source</td>
           <td>Destination</td>
+           <td>Airline</td>
       
     
   </tr>
@@ -288,12 +290,14 @@ if(search!=null)
     	 <td><%=pes.getfId() %></td>
     	  <td><%=pes.getName() %></td>
     	   <td><%=pes.getAge() %></td>
+    	     <td><%=pes.getEmail() %></td>
     	     <td><%=pes.getDate() %></td>
     	      <td><%=pes.getTicketNo()%></td>
-    	       <td><%=fli.getTicketPrice()%></td>
+    	       <td><%=Integer.parseInt(fli.getTicketPrice())*pes.getNop()%></td>
     	        <td><%=pes.getNop()%></td>
     	         <td><%=fli.getPlaces().getSource() %></td>
     	          <td><%=fli.getPlaces().getDestination() %></td>
+    	           <td><%=fli.getAirline().getAirlineName() %></td>
     	         
     
     	</tr>
