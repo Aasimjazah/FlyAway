@@ -70,7 +70,7 @@ a {
 </style>
 </head>
 <body>
-
+<a href="index.jsp">Home</a>
 
 <%
     String fid = request.getParameter("fid");
@@ -81,7 +81,7 @@ a {
 
 %>
 
-<form action="StorePesssenderDetails.jsp">
+<form action="StorePesssengerDetails.jsp">
   <div class="container" style="width:50%;border:2px solid black;margin-left:25%;">
     <h1>Register</h1>
     <p>Please fill in this form to book the flight</p>

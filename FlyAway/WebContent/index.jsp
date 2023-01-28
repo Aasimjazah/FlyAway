@@ -202,7 +202,7 @@ div.content {
   <a class="active" href="#home">Home</a>
   <a href="#news">News</a>
   <a Href="AdminLogin.jsp">Admin Login</a>
-  <a href="#contact">Contact</a>
+  <a href="MyTicket.jsp">My Tickets</a>
   <a href="#about">About</a>
 </div>
 
@@ -215,8 +215,8 @@ div.content {
                 <Ul Class="Nav">
                     <Li><A Href="#">Home</A></Li>
                     <Li><A Href="AdminLogin.jsp">Admin Login</A></Li>
+                    <Li><A Href="MyTicket.jsp">My Ticket Details</A></Li>
                     <Li><A Href="#">About</A></Li>
-                    <Li><A Href="#">Blog</A></Li>
                     <Li><A Href="#">Contact</A></Li>
                 </Ul>
             </Nav>

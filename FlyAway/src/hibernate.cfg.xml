@@ -18,6 +18,7 @@
 		<mapping class="com.entity.Airlines" />
 		<mapping class="com.entity.Places" />
 		<mapping class="com.entity.Flight" />
+		<mapping class="com.entity.Pessenger" />
 	
 	</session-factory>
 </hibernate-configuration>
