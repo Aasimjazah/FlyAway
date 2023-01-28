@@ -156,13 +156,13 @@ div.content {
   <a style="color:blue" class="active" href="AdminDashboard.jsp">Home</a>
   <a href="#news">News</a>
   <a Href="ResetPassword.jsp">Reset Password</a>
-  <a href="AllPessengers.jsp">All Pessengers</a>
+  <a href="AllFlights.jsp">All Flights</a>
 </div>
 
 <div class="content">
 <Header Class="Site-Header">
             <Div Class="Site-Identity">
-                <H1 ><A Href="index.jsp" style="color:#C70039;">Admin Dashboard <i class="fa fa-plane" style="font-size:25px;"></i></A></H1>
+                <H1 ><A Href="AdminDashboard.jsp" style="color:#C70039;">Admin Dashboard <i class="fa fa-plane" style="font-size:25px;"></i></A></H1>
             </Div>
             <Nav Class="Site-Navigation">
                 <Ul Class="Nav">
@@ -179,27 +179,31 @@ div.content {
          
          <table style="width:100%">
   <tr style="background-color:black; color:white;">
-    <td>Flight ID</td>
-    <td>Airlines</td>
-    <td>Source</td>
-    <td>Destination</td>
-     <td>Ticket Price</td>
+    <td>Passenger name</td>
+    <td>Passenger Email</td>
+    <td>Passenger Age</td>
+    <td>Flight_ID</td>
+    <td>No. of Passengers</td>
+     <td>Date of travel</td>
+      <td>Ticket No.</td>
     
   </tr>
 	
 	<%
-      List <Flight> flight =   AddFlightBusinessLogic.getAllFlights();
+      List <Pessenger> pes =   AddPessengerDetailsBusinessLogic.getAllPessengers();
 
-      for(Flight f: flight)
+      for(Pessenger p: pes)
       {
     	 
     	%>
     	<tr>
-    	 <td><%=f.getF_ID() %></td>
-    <td><%=f.getAirline().getAirlineName() %></td>
-    <td><%=f.getPlaces().getSource() %></td>
-    <td><%=f.getPlaces().getDestination() %></td>
-    <td><%=f.getTicketPrice() %> </td>
+    	 <td><%=p.getName() %></td>
+    <td><%=p.getEmail() %></td>
+    <td><%=p.getAge() %></td>
+    <td><%=p.getfId()%></td>
+    <td><%=p.getNop() %> </td>
+    <td><%=p.getDate()%> </td>
+    <td><%=p.getTicketNo() %> </td>
         	</tr>
     	<%
       

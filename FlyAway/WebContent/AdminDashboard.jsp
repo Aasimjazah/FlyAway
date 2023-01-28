@@ -153,7 +153,7 @@ div.content {
   <a href="#news">News</a>
   <a Href="ResetPassword.jsp">Reset Password</a>
   <a href="AllFlights.jsp">All FLights</a>
-  <a href="#about">About</a>
+  <a href="AllPessengers.jsp">All Pessengers</a>
 </div>
 
 <div class="content">

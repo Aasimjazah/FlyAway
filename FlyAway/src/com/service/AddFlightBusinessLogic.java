@@ -53,5 +53,28 @@ public class AddFlightBusinessLogic
 
        }
 	   
+	   public static List<Flight> getFlightById(int id)
+       {
+  
+     	  SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+ 	      Session session = sessionFactory.openSession();
+ 	      
+ 	      
 
+ 	     List<Flight> flight = session.createQuery("FROM Flight F WHERE F.F_ID ="+id).list();
+ 	     
+ 	   
+ 	     
+ 	      
+ 	      Transaction t = session.beginTransaction();
+           
+          
+    t.commit();
+    
+    session.close();
+    
+   return flight;
+
+       }
+	   
 }

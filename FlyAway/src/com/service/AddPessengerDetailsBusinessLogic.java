@@ -29,7 +29,7 @@ public class AddPessengerDetailsBusinessLogic
 
        } 
 	   
-	   public static List<Flight> getAllPessengers()
+	   public static List<Pessenger> getAllPessengers()
        {
   
      	  SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
@@ -37,7 +37,7 @@ public class AddPessengerDetailsBusinessLogic
  	      
  	      
 
- 	     List<Flight> flight = session.createQuery("from Flight").list();
+ 	     List<Pessenger> p = session.createQuery("from Pessenger").list();
  	     
  	   
  	     
@@ -49,7 +49,7 @@ public class AddPessengerDetailsBusinessLogic
     
     session.close();
     
-   return flight;
+   return p;
 
        }
 	   
