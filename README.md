@@ -1,4 +1,4 @@
-Fly Away (Java Web Application)
+Fly Away (An Airline Booking Portal)
 
 Table of content-
 •	About Application
